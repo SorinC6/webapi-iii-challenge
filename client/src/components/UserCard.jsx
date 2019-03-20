@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const UserCard = ({ name }) => {
+const UserCard = ({ name, id }) => {
 	return (
 		<Card>
 			<p>{name}</p>
