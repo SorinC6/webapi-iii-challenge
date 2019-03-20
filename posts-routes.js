@@ -55,4 +55,20 @@ postsRoutes.delete('/:id', async (req, res) => {
 	}
 });
 
+postsRoutes.put('/:id', async (req, res) => {
+	const { id } = req.params;
+	const post = req.body;
+
+	if (post.text) {
+		try {
+			const result = await postDb.update(id, post);
+			res.status(200).json(result);
+		} catch (error) {
+			res.status(500).json({ error: 'The post information could not be modified.' });
+		}
+	} else {
+		res.status(400).json({ errorMessage: 'Please provide text  for the post.' });
+	}
+});
+
 module.exports = postsRoutes;
