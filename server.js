@@ -1,11 +1,13 @@
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 const postsRoutes = require('./posts-routes');
 const usersRoutes = require('./user-routes');
 
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 server.use(helmet());
 server.use('/api/posts', postsRoutes);
 server.use('/api/users', usersRoutes);
