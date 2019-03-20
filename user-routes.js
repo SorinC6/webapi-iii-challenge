@@ -1,6 +1,10 @@
 const express = require('express');
 const userRoutes = express.Router();
 
+const md = require('./middleware');
+
+const toUpperCase = md.toUpperCase;
+
 const userDb = require('./data/helpers/userDb');
 
 userRoutes.get('/', (req, res) => {
@@ -44,7 +48,7 @@ userRoutes.get('/:userId/posts', (req, res) => {
 		.catch((err) => res.status(500).json({ error: 'The  information could not be retrieved.' }));
 });
 
-userRoutes.post('/', (req, res) => {
+userRoutes.post('/', toUpperCase(), (req, res) => {
 	const user = req.body;
 	if (user.name) {
 		userDb
