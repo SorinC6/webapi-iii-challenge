@@ -40,4 +40,19 @@ postsRoutes.post('/', async (req, res) => {
 	}
 });
 
+postsRoutes.delete('/:id', async (req, res) => {
+	const { id } = req.params;
+
+	try {
+		const result = await postDb.remove(id);
+		if (result.length) {
+			res.status(200).json(result);
+		} else {
+			res.status(404).json({ message: 'The post with the specified ID does not exist.' });
+		}
+	} catch (error) {
+		res.status(500).json({ error: 'The post could not be removed' });
+	}
+});
+
 module.exports = postsRoutes;
