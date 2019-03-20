@@ -30,4 +30,18 @@ userRoutes.get('/:id', (req, res) => {
 		});
 });
 
+userRoutes.get('/:userId/posts', (req, res) => {
+	const { userId } = req.params;
+	userDb
+		.getUserPosts(userId)
+		.then((posts) => {
+			if (posts.length) {
+				res.status(200).json(posts);
+			} else {
+				res.status(404).json({ message: 'The post with the specified ID does not exist.' });
+			}
+		})
+		.catch((err) => res.status(500).json({ error: 'The  information could not be retrieved.' }));
+});
+
 module.exports = userRoutes;
