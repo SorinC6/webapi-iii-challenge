@@ -13,7 +13,7 @@ userRoutes.get('/', (req, res) => {
 		.then((users) => {
 			res.status(200).json(users);
 		})
-		.catch((err) => {
+		.catch(() => {
 			res.status(500).json({ error: 'The post information could not be retrieved.' });
 		});
 });
