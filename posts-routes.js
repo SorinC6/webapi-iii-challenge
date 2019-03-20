@@ -25,4 +25,19 @@ postsRoutes.get('/:id', async (req, res) => {
 	}
 });
 
+postsRoutes.post('/', async (req, res) => {
+	const post = req.body;
+
+	if (post.text) {
+		try {
+			const result = await postDb.insert(post);
+			res.status(201).json(result);
+		} catch (error) {
+			res.status(500).json({ error: 'There was an error while saving the post to the database' });
+		}
+	} else {
+		res.status(400).json({ error: 'Please provide content for the post' });
+	}
+});
+
 module.exports = postsRoutes;
