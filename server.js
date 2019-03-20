@@ -8,7 +8,7 @@ const server = express();
 server.use(express.json());
 server.use(helmet());
 server.use('/api/posts', postsRoutes);
-server.use(usersRoutes);
+server.use('/api/users', usersRoutes);
 
 server.get('/', (req, res) => {
 	res.send('<h1>Hello from the Server</h1>');
