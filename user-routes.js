@@ -44,4 +44,20 @@ userRoutes.get('/:userId/posts', (req, res) => {
 		.catch((err) => res.status(500).json({ error: 'The  information could not be retrieved.' }));
 });
 
+userRoutes.post('/', (req, res) => {
+	const user = req.body;
+	if (user.name) {
+		userDb
+			.insert(user)
+			.then((user) => {
+				res.json(user);
+			})
+			.catch((err) => {
+				res.status(500).json({ error: 'There was an error while saving the post to the database' });
+			});
+	} else {
+		res.status(400).json({ errorMessage: 'Please provide name for the user.' });
+	}
+});
+
 module.exports = userRoutes;
