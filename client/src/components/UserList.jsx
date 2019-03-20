@@ -1,18 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Card from './UserCard';
 
-const UserList = ({users}) => {
+const UserList = ({ users }) => {
+	return (
+		<div>
+			{users.map((user) => {
+				return <Card name={user.name} />;
+			})}
+		</div>
+	);
+};
 
-    return(
-        <div>
-            {
-                users.map(user=>{
-                    return(
-                        <p>{user.name}</p>
-                    )
-                })
-            }
-        </div>
-    )
-}
-
-export default UserList
+export default UserList;
