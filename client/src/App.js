@@ -43,7 +43,6 @@ class App extends Component {
 		return (
 			<div className="App">
 				<h1>Lambda Day 3 challenge</h1>
-
 				<div>
 					<Route exact path="/" render={(props) => <UserList {...props} users={this.state.users} />} />
 					<Route

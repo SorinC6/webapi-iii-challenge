@@ -24,7 +24,7 @@ class UserInfo extends React.Component {
 
 	render() {
         const current = this.state.currentUser[0];
-        debugger;
+        //debugger;
 		console.log(current);
 		return (
 			<div>
