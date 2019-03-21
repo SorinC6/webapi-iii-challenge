@@ -4,18 +4,14 @@
 	"description": "Web API Blog Project",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js"
+		"start": "node index.js",
+		"server": "nodemon index.js"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/LambdaSchool/Node-Blog.git"
 	},
-	"keywords": [
-		"node",
-		"express",
-		"blog",
-		"api"
-	],
+	"keywords": [ "node", "express", "blog", "api" ],
 	"author": "Lambda School",
 	"license": "ISC",
 	"bugs": {
